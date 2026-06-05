@@ -1,0 +1,25 @@
+CREATE TABLE `cliente` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `cpf` varchar(14) NOT NULL,
+  `endereco` varchar(50) NOT NULL,
+  `telefone` varchar(30) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `statusRegistro` int DEFAULT '1' COMMENT 'Ativo ou Inativo',
+  `usuario_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_email` (`email`),
+  UNIQUE KEY `unique_telefone` (`telefone`),
+  KEY `usuario_id_idx` (`usuario_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `funcionario` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `cpf` varchar(14) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `cargo` varchar(45) NOT NULL,
+  `usuario_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `usuario_id_idx` (`usuario_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
